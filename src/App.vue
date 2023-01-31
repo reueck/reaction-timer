@@ -1,18 +1,42 @@
 
 
 <template>
+        
+
+           
+  
   <header>
     <h1>Reakcją tajmer</h1>
-    <p>Intro xD</p>
-  
+    <div>
+      <button @click="start">Nowa gra</button>
+
+    </div>
   </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+
 </template>
 
 <script>
+  export default {
+    name: 'App',
+    components: {
+      
+    },
+    data(){
+      return{
+        isPlaying: false,
+        delay: null
+      }
+    },
+    methods: {
+      start() {
+        this.isPlaying = true;
+        this.delay = 2000 + Math.random() * 5000;
+        // to da nam randomową liczbę między 2 a 5 sekund
+        console.log(this.delay);
+      }
+    },
+  }
 </script>
 
 
@@ -30,6 +54,40 @@ header {
   header {
     display: flex;
     place-items: center;
+  }
+}
+
+h1, button {
+  font-size: 6rem;
+  font-weight: bold;
+  letter-spacing: 0.6rem;
+  background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+  background-clip: text;
+  --webkit-text-fill-color: transparent;
+  letter-spacing: -0.04em;
+  user-select: none;
+  text-shadow: -15px 5px 20px rgba(61, 0, 77, 0.38);
+  margin: 0;
+  text-align: center;
+  font-family: Bangers, cursive;
+}
+
+button {
+  font-size: 4rem;
+  color: white;
+  background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+  background-clip: text;
+  --webkit-text-fill-color: transparent;
+  letter-spacing: -0.04em;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
   }
 }
 </style>

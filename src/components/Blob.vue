@@ -1,5 +1,5 @@
 <template>
-	<div class="blob" v-if="showBlob">click me xd</div>
+	<div class="blob" v-if="showBlob" @click="stopTimer">click me xd</div>
 </template>
 
 <script>
@@ -7,21 +7,29 @@ export default {
     props: ['delay'],
 data() {
     return {
-        showBlob: false
+        showBlob: false,
+        timer: null,
+        reactionTime: 0,
     }
 },
 mounted(){
     setTimeout(() => {
         this.showBlob = true
-        console.log(this.delay);
+        this.startTimer()
     }, this.delay)},
-updated() {
-    console.log('updated');
-},
-unmounted() {
-    this.showBlob = false
-},
-// to się odpali dopiero jak to będzie zmountowane do dom
+methods:{
+    startTimer(){
+        this.timer= setInterval(() => {
+            this.reactionTime+=10
+        }, 10)
+    },
+    stopTimer(){
+        clearInterval(this.timer)
+        console.log(this.reactionTime);
+        this.$emit('reaction', this.reactionTime)
+    }
+}
+
 }
 </script>
 

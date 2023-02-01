@@ -3,8 +3,7 @@
 		<h1>Reakcją tajmer</h1>
 		<div>
       	<Blob v-if="isPlaying" :delay="delay" />
-			<button @click="start" :disabled="isPlaying">Nowa gra</button>
-			<!-- dopóki gra jest grana to przycisk jest dezaktywowany a powinien być niewidzoczny -->
+			<button @click="start" :hidden="isPlaying">Nowa gra</button>
 		</div>
 	</header>
 

@@ -50,7 +50,6 @@ h1,
 button {
 	font-size: 6rem;
 	font-weight: bold;
-	letter-spacing: 0.6rem;
 	background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
 	background-clip: text;
 	--webkit-text-fill-color: transparent;

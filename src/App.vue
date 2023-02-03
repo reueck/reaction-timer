@@ -2,8 +2,9 @@
 	<header>
 		<h1>Reakcją tajmer</h1>
 		<div>
-      	<Blob v-if="isPlaying" :delay="delay" />
-			<button @click="start" :hidden="isPlaying">Nowa gra</button>
+      	<Blob v-if="isPlaying" :delay="delay" @end="endGame"/>
+		  <p v-if="showMissionSummary">Ukończyłeś misję w {{ time }} milisekund! Twoja babcia robi to szybciej : /</p>
+		  <button @click="start" :hidden="isPlaying">Nowa gra</button>
 		</div>
 	</header>
 
@@ -20,12 +21,19 @@ export default {
 		return {
 			isPlaying: false,
 			delay: null,
+			time: null,
+			showMissionSummary: false,
 		}
 	},
 	methods: {
 		start() {
 			this.isPlaying = true
 			this.delay = 2000 + Math.random() * 5000
+		},
+		endGame(reactionTime) {
+			this.time = reactionTime,
+			this.isPlaying = false
+			this.showMissionSummary = true
 		},
 	},
 }

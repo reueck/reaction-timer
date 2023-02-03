@@ -1,6 +1,6 @@
 <template>
 	<div class="blob" v-if="showBlob">
-		<svg height="200px" width="200px" id="Layer_1" viewBox="0 0 496.159 496.159" xml:space="preserve" fill="#000000" @click="stopTimer">
+		<svg height="500px" width="500px" id="Layer_1" viewBox="0 0 496.159 496.159" xml:space="preserve" fill="#000000" @click="stopTimer">
 		
 		<g class="blob">
 			<g>
@@ -105,6 +105,6 @@ export default {
 <style lang="scss">
 .blob {
     cursor: pointer;
-	width: 250px;
+	width: 500px;
 }
 </style>

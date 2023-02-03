@@ -17,3 +17,8 @@ yarn
 ```sh
 yarn dev
 ```
+
+## To do
+  * clean up styles and divide them into scss components
+  * add average score
+  * change alien svg into something lighter to achieve better loading time

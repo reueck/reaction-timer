@@ -1,6 +1,7 @@
 <template>
 	<header>
 		<h1>Reakcją tajmer</h1>
+		<p>Jak szybko złapiesz kosmitę?</p>
 	</header>
 	<main>
 		<div>
@@ -71,7 +72,7 @@ header {
 }
 
 h1,
-button {
+button,p {
 	font-size: 6rem;
 	font-weight: bold;
 	color: hsla(305, 73%, 41%, 0.4);
@@ -83,16 +84,23 @@ button {
 	-webkit-user-select: none;
 	text-shadow: -15px 5px 20px rgba(62, 0, 77, 0.103);
 	margin: 0;
+	padding: 0;
 	text-align: center;
 	font-family: Bangers, cursive;
 	cursor: default;
+}
+
+p{
+	font-size: 2rem;
 }
 
 main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	padding: var(--section-gap);
+	height: 80vh;
 
 	button {
 		font-size: 3rem;

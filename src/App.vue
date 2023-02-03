@@ -1,12 +1,11 @@
 <template>
 	<header>
 		<h1>Reakcją tajmer</h1>
-		
 	</header>
 	<main>
 		<div>
 			<Blob v-if="isPlaying" :delay="delay" @end="endGame" />
-			<p v-if="showMissionSummary">Ukończyłeś misję w {{ time }} milisekund! Twoja babcia robi to szybciej : /</p>
+			<Results v-if="showMissionSummary" :time="time" />
 			<button @click="start" :hidden="isPlaying">
 				<span v-if="!hasBeenPlayed">Nowa gra</span>
 				<span v-else>Zagraj ponownie</span>
@@ -17,10 +16,12 @@
 
 <script>
 import Blob from './components/Blob.vue'
+import Results from './components/Results.vue'
 export default {
 	name: 'App',
 	components: {
 		Blob,
+		Results,
 	},
 	data() {
 		return {
@@ -29,20 +30,29 @@ export default {
 			time: null,
 			showMissionSummary: false,
 			hasBeenPlayed: false,
+			// results: [],
+			// average: null,
 		}
 	},
 	methods: {
 		start() {
-			this.isPlaying = true
-			;(this.delay = 2000 + Math.random() * 5000), (this.showMissionSummary = false)
+			this.isPlaying = true;
+			(this.delay = 2000 + Math.random() * 5000), (this.showMissionSummary = false)
 		},
 		endGame(reactionTime) {
-			;(this.time = reactionTime), (this.isPlaying = false)
+			(this.time = reactionTime), (this.isPlaying = false)
 			this.showMissionSummary = true
 			this.hasBeenPlayed = true
 		},
-	},
-}
+		// calculateAverage() {
+		// 	if(hasBeenPlayed){
+		// 		this.results.push(this.time)
+		// 	const sum = this.results.reduce((a, b) => a + b, 0)
+		// 	this.average = Math.round(sum / this.results.length)
+		// 	}
+		}
+	}
+
 </script>
 
 <style lang="scss" scoped>
@@ -84,29 +94,27 @@ main {
 	align-items: center;
 	padding: var(--section-gap);
 
-
-button {
-	font-size: 3rem;
-	text-align: center;
-	color: hsl(305, 73%, 41%);
-	background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
-	background-clip: text;
-	--webkit-text-fill-color: transparent;
-	user-select: none;
-	-webkit-user-select: none;
-	letter-spacing: -0.04em;
-	border: none;
-	place-self: center;
-	padding: 1rem 2rem;
-	cursor: pointer;
-	transition: all 0.2s ease-in-out;
-	&:hover {
-		transform: scale(1.1);
+	button {
+		font-size: 3rem;
+		text-align: center;
+		color: hsl(305, 73%, 41%);
+		background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+		background-clip: text;
+		--webkit-text-fill-color: transparent;
+		user-select: none;
+		-webkit-user-select: none;
+		letter-spacing: -0.04em;
+		border: none;
+		place-self: center;
+		padding: 1rem 2rem;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		&:hover {
+			transform: scale(1.1);
+		}
+		&:active {
+			transform: scale(0.9);
+		}
 	}
-	&:active {
-		transform: scale(0.9);
-	}
-}
-
 }
 </style>

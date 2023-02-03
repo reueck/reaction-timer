@@ -28,7 +28,8 @@ export default {
 	methods: {
 		start() {
 			this.isPlaying = true
-			this.delay = 2000 + Math.random() * 5000
+			this.delay = 2000 + Math.random() * 5000,
+			this.showMissionSummary = false
 		},
 		endGame(reactionTime) {
 			this.time = reactionTime,

@@ -104,8 +104,7 @@ export default {
 
 <style lang="scss">
 .blob {
-	color: azure;
-	text-align: center;
+    cursor: pointer;
 	width: 250px;
 }
 </style>

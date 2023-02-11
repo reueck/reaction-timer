@@ -1,9 +1,8 @@
 <template>
 	<div class="results">
-		<h1>Wyniki</h1>
+		<h1>Misja zaliczona</h1>
 		<p>Twój ostatni czas reakcji wynosił: {{ time }} ms</p>
         <p class="rank">Ranga: {{ rank }}</p>
-		<!-- <p v-if="hasBeenPlayed">Średni czas reakcji: {{ average }} ms</p> -->
 	</div>
 </template>
 
@@ -15,10 +14,6 @@ export default {
 			type: Number,
 			required: true,
 		},
-        // average: {
-        //     type: Number,
-        //     required: false,
-        // }
 	},
     data(){
         return {
